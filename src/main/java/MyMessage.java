@@ -190,6 +190,7 @@ public class MyMessage {
 
                     Thread.sleep(Constant.WAIT1);
                 }
+                this.status = Constant.SENT;
                 do {
                     messageStatus = this.myStatus.findElement(By.cssSelector(Constant.MSG_STATUS));
                     status = messageStatus.getAttribute(Constant.ARIA_LABEL);
@@ -200,6 +201,7 @@ public class MyMessage {
                     }
                 } while (!status.equals(Constant.READ));
                 this.read=true;
+                this.status = Constant.READ;
             } catch (Exception e) {
                 messageStatus();
             }
